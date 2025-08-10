@@ -292,6 +292,84 @@ const Conversion = () => {
         </div>
       </section>
 
+      {/* Real Backlinks Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-blue-600">Real Backlinks</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Save +100 hours of work!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Pexels", url: "pexels.com", dr: "93", status: "Live & Indexed" },
+              { name: "TripAdvisor", url: "tripadvisor.com", dr: "94", status: "Live & Indexed" },
+              { name: "Quora", url: "quora.com", dr: "92", status: "Live & Indexed" },
+              { name: "Pinterest", url: "pinterest.com", dr: "94", status: "Live & Indexed" },
+              { name: "Posteezy", url: "posteezy.com", dr: "62", status: "Live & Indexed" },
+              { name: "Laravel Paste", url: "paste.laravel.io", dr: "76", status: "Live & Indexed" },
+              { name: "Ranker", url: "ranker.com", dr: "81", status: "Live & Indexed" },
+              { name: "PasteLink", url: "pastelink.net", dr: "52", status: "Live & Indexed" },
+              { name: "Academia.edu", url: "independent.academia.edu", dr: "89", status: "Live & Indexed" }
+            ].map((backlink, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-900">{backlink.name}</h3>
+                      <p className="text-sm text-gray-500">{backlink.url}</p>
+                    </div>
+                    <div className="text-right">
+                      <Badge variant="outline" className="text-xs mb-2">
+                        DR {backlink.dr}
+                      </Badge>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-sm text-green-600">{backlink.status}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Sample Report Section */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Client Sample Report
+          </h2>
+          <p className="text-lg text-gray-600 mb-12">
+            Download a sample report to see how our AI-powered backlink analysis can transform your SEO strategy
+          </p>
+          <div className="max-w-md mx-auto">
+            <div className="bg-blue-600 rounded-3xl p-12 text-white shadow-2xl">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">S</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-8">
+                SAMPLE REPORT
+              </h3>
+              <Button 
+                size="lg" 
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3"
+              >
+                <FileText className="w-5 h-5 mr-2" />
+                Download Sample Report
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* We Use Soogle Section */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-6">
