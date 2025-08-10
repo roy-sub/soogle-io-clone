@@ -68,7 +68,7 @@ const HomePage = () => {
               Sign in with Google
             </Button>
             <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
-              <RouterLink to="/get-started">Get Started Now</RouterLink>
+              <RouterLink to="/conversion">Get Started Now</RouterLink>
             </Button>
           </div>
           <p className="text-sm text-gray-500">
