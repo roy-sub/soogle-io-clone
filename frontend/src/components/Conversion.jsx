@@ -2,250 +2,370 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { 
+  Search, 
+  TrendingUp, 
+  Link, 
+  ShieldCheck, 
+  Bell, 
+  FileText,
+  Star,
+  ArrowRight,
+  ShoppingCart,
+  Wrench,
+  Zap
+} from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
-import { ArrowLeft, Check, Star, TrendingUp, Shield, Zap, Users } from "lucide-react";
+import { clientLogos, backlinksPartners, testimonials, pressLogos, featuresData } from "../data/mock";
 
 const Conversion = () => {
-  const benefits = [
-    "25 high-quality backlinks every month",
-    "Improve Domain Rating in 3-6 months",
-    "100% white-hat link building techniques",
-    "Manual outreach to real websites",
-    "Detailed monthly reports & analytics",
-    "No long-term contracts required"
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      company: "TechStartup.io",
-      text: "My DR went from 15 to 42 in just 4 months!",
-      rating: 5,
-      improvement: "+180% organic traffic"
-    },
-    {
-      name: "Mike Chen", 
-      company: "EcommerceStore",
-      text: "Finally found a link building service that actually works.",
-      rating: 5,
-      improvement: "Ranking #1 for main keywords"
-    },
-    {
-      name: "Lisa Rodriguez",
-      company: "DigitalAgency",
-      text: "We use Soogle for all our clients now. Results speak for themselves.",
-      rating: 5,
-      improvement: "300% increase in leads"
-    }
-  ];
-
-  const urgencyReasons = [
-    { icon: TrendingUp, text: "Your competitors are building links right now" },
-    { icon: Shield, text: "Google favors websites with strong backlink profiles" },
-    { icon: Zap, text: "Every day you wait = missed organic traffic" },
-    { icon: Users, text: "Limited spots available this month" }
-  ];
+  const iconMap = {
+    search: Search,
+    "trending-up": TrendingUp,
+    link: Link,
+    "shield-check": ShieldCheck,
+    bell: Bell,
+    "file-text": FileText
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+      <header className="border-b border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <RouterLink to="/">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </RouterLink>
-            </Button>
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-semibold text-gray-900">Soogle</span>
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">S</span>
             </div>
+            <span className="text-xl font-semibold text-gray-900">Soogle</span>
           </div>
-          <Badge variant="destructive" className="animate-pulse">
-            Limited Time Offer
-          </Badge>
+          <nav className="hidden md:flex items-center space-x-8">
+            <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Help Center</a>
+          </nav>
         </div>
       </header>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <Badge className="mb-6 bg-green-100 text-green-800 px-6 py-2">
-            ⚡ Get Started in 5 Minutes
-          </Badge>
-          
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Ready to <span className="text-blue-600">Dominate</span> Search Results?
-          </h1>
-          
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Join 1,000+ smart business owners who are already using our AI-powered link building 
-            to increase their Domain Rating and organic traffic by <strong>300%+</strong> in just 3-6 months.
-          </p>
+      {/* Backlink Partners Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {backlinksPartners.slice(0, 10).map((partner, index) => (
+            <Card key={index} className="p-4 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-0 text-center">
+                <img 
+                  src={partner.favicon} 
+                  alt={partner.name}
+                  className="w-8 h-8 mx-auto mb-2"
+                />
+                <h3 className="font-medium text-xs text-gray-900 mb-1">{partner.name}</h3>
+                <p className="text-xs text-gray-500 mb-1">{partner.url}</p>
+                <Badge variant="outline" className="text-xs">
+                  DR {partner.dr}
+                </Badge>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
-          {/* Social Proof */}
-          <div className="flex items-center justify-center space-x-8 mb-12">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">1,000+</div>
-              <div className="text-sm text-gray-600">Happy Customers</div>
+      {/* Main Conversion Section */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Content */}
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Improve SEO in Weeks
+            </h1>
+            
+            <div className="mb-6">
+              <Badge className="mb-4 bg-blue-100 text-blue-600 border-blue-200">
+                Most Clients See +4 DR in 6 Months
+              </Badge>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">300%</div>
-              <div className="text-sm text-gray-600">Avg Traffic Increase</div>
+
+            <div className="mb-8">
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="text-4xl font-bold text-gray-900">$67 USD</span>
+                <span className="text-xl text-gray-500 line-through">$467 USD</span>
+                <Badge className="bg-blue-600 text-white">SAVE 86%</Badge>
+              </div>
+              <p className="text-sm text-gray-600">Taxes included.</p>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600">4.9/5</div>
-              <div className="text-sm text-gray-600">Customer Rating</div>
+
+            {/* Features List */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Link className="w-3 h-3 text-blue-600" />
+                </div>
+                <span className="text-gray-700">+20 Backlinks Per Month</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Wrench className="w-3 h-3 text-blue-600" />
+                </div>
+                <span className="text-gray-700">SEO Tools Worth $1,000s</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Zap className="w-3 h-3 text-blue-600" />
+                </div>
+                <span className="text-gray-700">5 Premium Backlinks (+80 DR)</span>
+              </div>
+            </div>
+
+            {/* Money Back Guarantee */}
+            <div className="border border-blue-200 rounded-lg p-4 mb-8 bg-blue-50">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-blue-600" />
+                <span className="text-blue-700 font-medium">30-Day Money-Back Guarantee</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - CTA */}
+          <div className="text-center lg:text-left">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg w-full mb-4"
+            >
+              <RouterLink to="/get-started">
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Give Me Backlinks Now
+              </RouterLink>
+            </Button>
+            <p className="text-sm text-gray-500 mb-4">
+              We offer a 30-day money-back guarantee - see our refund policy. By purchasing, you agree to our terms of service.
+            </p>
+            <div className="flex justify-center gap-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" className="h-6" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal" className="h-6" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/200px-Google_Pay_Logo.svg.png" alt="Google Pay" className="h-6" />
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Benefits Section */}
-        <Card className="mb-12 shadow-xl border-0">
-          <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Here's What You Get Starting Today:
+      {/* Press Section */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-center text-gray-500 text-sm mb-8">AS SEEN ON</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            {pressLogos.map((press, index) => (
+              <a key={index} href={press.url} target="_blank" rel="noopener noreferrer">
+                <img 
+                  src={press.logo} 
+                  alt={press.name}
+                  className="h-8 grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Social Proof */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-center text-gray-900 text-lg font-medium mb-8">
+            Over <strong>1k+</strong> SEO agencies, companies and individual marketers <strong className="text-blue-600">growing with us</strong>
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+            {clientLogos.map((client, index) => (
+              <img 
+                key={index}
+                src={client.logo} 
+                alt={client.name}
+                className="h-10 grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Real Results Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Real Results from Real Websites
             </h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                    <Check className="w-4 h-4 text-green-600" />
-                  </div>
-                  <span className="text-gray-700 font-medium">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Urgency Section */}
-        <Card className="mb-12 bg-red-50 border-red-200 shadow-lg">
-          <CardContent className="p-8">
-            <h3 className="text-xl font-bold text-red-800 mb-4 text-center">
-              ⚠️ Don't Wait - Here's Why You Need to Act NOW:
-            </h3>
-            <div className="space-y-3">
-              {urgencyReasons.map((reason, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <reason.icon className="w-5 h-5 text-red-600 flex-shrink-0" />
-                  <span className="text-red-700 font-medium">{reason.text}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Testimonials */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Real Results from Real Customers
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
+            <p className="text-lg text-gray-600">
+              See how these sites dramatically <strong className="text-blue-600">improved their Domain Rating</strong> in just 3 months
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.slice(0, 8).map((testimonial) => (
+              <Card key={testimonial.id} className="p-4 hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-0">
                   <div className="flex items-center mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 italic mb-4">"{testimonial.text}"</p>
-                  <div className="border-t pt-4">
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.company}</div>
-                    <div className="text-sm text-green-600 font-medium mt-1">
-                      {testimonial.improvement}
+                    <img 
+                      src={testimonial.avatar}
+                      alt={testimonial.website}
+                      className="w-8 h-8 rounded-full mr-3"
+                    />
+                    <div>
+                      <h3 className="font-semibold text-sm text-gray-900">{testimonial.website}</h3>
+                      <p className="text-xs text-gray-500">{testimonial.category}</p>
                     </div>
                   </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-center">
+                      <p className="text-xs text-gray-500">Initial DR</p>
+                      <p className="text-lg font-bold">{testimonial.initialDR}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    <div className="text-center">
+                      <p className="text-xs text-gray-500">After 3 Months</p>
+                      <p className="text-lg font-bold text-blue-600">{testimonial.currentDR}</p>
+                    </div>
+                    <div className="bg-green-100 px-2 py-1 rounded">
+                      <p className="text-green-600 font-semibold text-xs">+{testimonial.growth}</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 italic">"{testimonial.testimonial.substring(0, 60)}..."</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Price Comparison */}
-        <Card className="mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 shadow-lg">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Compare the Real Cost:
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-red-600 font-semibold mb-2">DIY Link Building</div>
-                <div className="text-3xl font-bold text-red-600 mb-2">$5,000+/month</div>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• SEO Manager: $4,000/mo</div>
-                  <div>• Tools & Software: $500/mo</div>
-                  <div>• Content Creation: $800/mo</div>
-                  <div>• Time & Effort: Priceless</div>
-                </div>
-              </div>
-              <div className="text-center border-2 border-green-300 rounded-lg p-4 bg-white">
-                <div className="text-green-600 font-semibold mb-2">Soogle.io</div>
-                <div className="text-3xl font-bold text-green-600 mb-2">$67/month</div>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• 25 Quality Backlinks</div>
-                  <div>• Full-Service Management</div>
-                  <div>• Detailed Reports</div>
-                  <div>• 30-Day Guarantee</div>
-                </div>
-                <Badge className="mt-3 bg-green-100 text-green-800">
-                  Save 98.6%
-                </Badge>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Final CTA */}
-        <Card className="shadow-2xl border-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-          <CardContent className="p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              🚀 Start Building Your SEO Empire Today
+      {/* All-In-One SEO Suite */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-blue-600">All-In-One SEO Suite</span>
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Don't let another day pass watching your competitors outrank you. 
-              Take action now and secure your spot!
+            <p className="text-xl text-gray-600">
+              designed for your needs!
             </p>
-            
-            <div className="space-y-4">
-              <Button 
-                size="lg" 
-                className="bg-white text-blue-600 hover:bg-gray-100 text-xl px-12 py-6 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
-                asChild
-              >
-                <RouterLink to="/get-started">
-                  🎯 Give Me Backlinks Now - $67/month
-                </RouterLink>
-              </Button>
-              
-              <div className="text-sm opacity-80">
-                ✅ 30-Day Money Back Guarantee • ✅ Cancel Anytime • ✅ No Setup Fees
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuresData.map((feature, index) => {
+              const IconComponent = iconMap[feature.icon];
+              return (
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-0">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                      <IconComponent className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* We Use Soogle Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-blue-600">We</span> use <span className="text-blue-600">Soogle.io</span> for our own products
+            </h2>
+            <p className="text-lg text-gray-600">
+              PlaylistHub got <strong>17 DR in 3 months</strong> with so many different strategies and testing, we spent over <strong>$2,000 testing</strong> to find the best strategies for our clients.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-6">
+                  <span className="text-white font-bold text-xl">P</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">playlisthub.io</h3>
+                  <p className="text-gray-600">Music Marketing</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center space-x-8 mb-4">
+                  <div>
+                    <p className="text-sm text-gray-500">Initial DR</p>
+                    <p className="text-3xl font-bold text-gray-900">2</p>
+                  </div>
+                  <ArrowRight className="w-8 h-8 text-gray-400" />
+                  <div>
+                    <p className="text-sm text-gray-500">After 3 Months</p>
+                    <p className="text-3xl font-bold text-blue-600">17</p>
+                  </div>
+                  <div className="bg-green-100 px-4 py-2 rounded-full">
+                    <p className="text-green-600 font-semibold">+15</p>
+                  </div>
+                </div>
+                <div className="bg-blue-100 px-4 py-2 rounded-full inline-block">
+                  <p className="text-blue-700 font-semibold">+3,000 Organic Searches Per Day</p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-8 pt-8 border-t border-white/20">
-              <p className="text-sm opacity-80">
-                🔒 Secure checkout • 💳 All major cards accepted • ⚡ Get started in 5 minutes
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">FAQ</h2>
+          <div className="space-y-6">
+            {[
+              {
+                question: "How long does it take to see results?",
+                answer: "Most clients see +4 DR improvement within 6 months. Some see results as early as 3 months depending on their starting point and industry competition."
+              },
+              {
+                question: "What types of backlinks do you provide?",
+                answer: "We provide high-quality, contextual backlinks from real websites with high domain ratings. All backlinks are manually vetted and follow white-hat SEO practices."
+              },
+              {
+                question: "Do you guarantee results?",
+                answer: "Yes! We offer a 30-day money-back guarantee. If you're not satisfied with our service within the first 30 days, we'll provide a full refund."
+              },
+              {
+                question: "Can I cancel anytime?",
+                answer: "Absolutely. You can cancel your subscription at any time with no cancellation fees. Your service will continue until the end of your current billing period."
+              }
+            ].map((faq, index) => (
+              <Card key={index} className="p-6">
+                <CardContent className="p-0">
+                  <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                  <p className="text-gray-600">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Risk Reversal */}
-        <div className="text-center mt-8 text-gray-600">
-          <p className="text-sm">
-            Still not sure? <strong>No problem!</strong> Try us risk-free for 30 days. 
-            If you don't see improvement in your rankings, we'll refund every penny.
+      {/* Final CTA */}
+      <section className="bg-blue-600 py-16 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-4">
+            Ready to Improve Your SEO?
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join 1,000+ agencies and marketers growing their organic traffic with Soogle.io
+          </p>
+          <Button 
+            size="lg" 
+            asChild 
+            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg"
+          >
+            <RouterLink to="/get-started">
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              Give Me Backlinks Now - $67
+            </RouterLink>
+          </Button>
+          <p className="text-sm mt-4 opacity-75">
+            30-day money-back guarantee • No setup fees • Cancel anytime
           </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
