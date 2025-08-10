@@ -111,11 +111,14 @@
     file: "/app/frontend/src/components/HomePage.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: true
           agent: "main"
           comment: "Homepage fully implemented with hero section, features, testimonials, and responsive design. All components loading correctly."
+        - working: true
+          agent: "main"
+          comment: "Updated homepage to redirect 'Get Started Now' buttons to /conversion instead of /get-started to match actual soogle.io flow."
 
   - task: "Get Started/Signup Page"
     implemented: true
