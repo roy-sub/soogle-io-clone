@@ -46,26 +46,40 @@ const Conversion = () => {
         </div>
       </header>
 
-      {/* Backlink Partners Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {backlinksPartners.slice(0, 10).map((partner, index) => (
-            <Card key={index} className="p-4 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-0 text-center">
-                <img 
-                  src={partner.favicon} 
-                  alt={partner.name}
-                  className="w-8 h-8 mx-auto mb-2"
-                />
-                <h3 className="font-medium text-xs text-gray-900 mb-1">{partner.name}</h3>
-                <p className="text-xs text-gray-500 mb-1">{partner.url}</p>
-                <Badge variant="outline" className="text-xs">
-                  DR {partner.dr}
-                </Badge>
-              </CardContent>
-            </Card>
-          ))}
+      {/* Backlink Partners Grid - Revolving */}
+      <section className="max-w-7xl mx-auto px-6 py-8 overflow-hidden">
+        <div className="animate-scroll-infinite">
+          <div className="flex gap-4 w-max">
+            {[...backlinksPartners, ...backlinksPartners].slice(0, 20).map((partner, index) => (
+              <Card key={index} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-32">
+                <CardContent className="p-0 text-center">
+                  <img 
+                    src={partner.favicon} 
+                    alt={partner.name}
+                    className="w-8 h-8 mx-auto mb-2"
+                  />
+                  <h3 className="font-medium text-xs text-gray-900 mb-1">{partner.name}</h3>
+                  <p className="text-xs text-gray-500 mb-1">{partner.url}</p>
+                  <Badge variant="outline" className="text-xs">
+                    DR {partner.dr}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
+        <style jsx>{`
+          @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll-infinite {
+            animation: scroll-infinite 30s linear infinite;
+          }
+          .animate-scroll-infinite:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
       </section>
 
       {/* Main Conversion Section */}
