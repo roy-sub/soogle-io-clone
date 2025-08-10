@@ -5,7 +5,7 @@ import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { useToast } from "../hooks/use-toast";
 import { Link as RouterLink } from "react-router-dom";
-import { ArrowLeft, Mail, Lock, User, Globe } from "lucide-react";
+import { ArrowLeft, Mail, Lock, User, Globe, Link as LinkIcon, TrendingUp, ShieldCheck } from "lucide-react";
 
 const GetStarted = () => {
   const [formData, setFormData] = useState({
