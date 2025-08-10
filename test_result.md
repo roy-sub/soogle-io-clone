@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-## user_problem_statement: "Create a full clone of soogle.io SEO platform with homepage, signup page, and dashboard components including backlinks, performance, SEO audit, SERP pages. Fix runtime errors and complete all missing pages."
+## user_problem_statement: "Add a /conversion page between homepage and get-started page to match the actual soogle.io flow. The homepage 'Get Started Now' button should redirect to /conversion, and the conversion page should have a 'Give Me Backlinks Now' button that leads to /get-started."
 
 ## frontend:
   - task: "Homepage Implementation"
