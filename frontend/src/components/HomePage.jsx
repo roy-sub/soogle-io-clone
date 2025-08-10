@@ -262,7 +262,7 @@ const HomePage = () => {
             Try it risk free — we don't charge cancellation fees.
           </p>
           <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
-            <RouterLink to="/get-started">Start for $67</RouterLink>
+            <RouterLink to="/conversion">Start for $67</RouterLink>
           </Button>
         </div>
       </section>
