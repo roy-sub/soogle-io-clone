@@ -46,7 +46,7 @@ const HomePage = () => {
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="sm">Sign In</Button>
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <RouterLink to="/get-started">Get Started</RouterLink>
+              <RouterLink to="/conversion">Get Started</RouterLink>
             </Button>
           </div>
         </div>
