@@ -257,15 +257,18 @@
 
   - task: "App Routing Setup"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/App.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: true
           agent: "main"
           comment: "Main app routing updated to include all pages: /, /get-started, /dashboard/*, /blog, /faq, /contact"
+        - working: false
+          agent: "main"
+          comment: "Updated routing to include /conversion route. Flow is now: Homepage -> /conversion -> /get-started to match actual soogle.io"
 
 ## backend:
   - task: "Backend API Development"
