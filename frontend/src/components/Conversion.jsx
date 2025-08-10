@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 import { clientLogos, backlinksPartners, testimonials, pressLogos, featuresData } from "../data/mock";
+import "../styles/animations.css";
 
 const Conversion = () => {
   const iconMap = {
