@@ -198,7 +198,7 @@ const Conversion = () => {
         </div>
       </section>
 
-      {/* Real Results Section */}
+      {/* Real Results Section - Revolving */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -209,41 +209,57 @@ const Conversion = () => {
               See how these sites dramatically <strong className="text-blue-600">improved their Domain Rating</strong> in just 3 months
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {testimonials.slice(0, 8).map((testimonial) => (
-              <Card key={testimonial.id} className="p-4 hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-3">
-                    <img 
-                      src={testimonial.avatar}
-                      alt={testimonial.website}
-                      className="w-8 h-8 rounded-full mr-3"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-sm text-gray-900">{testimonial.website}</h3>
-                      <p className="text-xs text-gray-500">{testimonial.category}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-center">
-                      <p className="text-xs text-gray-500">Initial DR</p>
-                      <p className="text-lg font-bold">{testimonial.initialDR}</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                    <div className="text-center">
-                      <p className="text-xs text-gray-500">After 3 Months</p>
-                      <p className="text-lg font-bold text-blue-600">{testimonial.currentDR}</p>
-                    </div>
-                    <div className="bg-green-100 px-2 py-1 rounded">
-                      <p className="text-green-600 font-semibold text-xs">+{testimonial.growth}</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600 italic">"{testimonial.testimonial.substring(0, 60)}..."</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="overflow-hidden">
+            <div className="animate-scroll-testimonials">
+              <div className="flex gap-6 w-max">
+                {[...testimonials, ...testimonials].map((testimonial, index) => (
+                  <Card key={`${testimonial.id}-${index}`} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-80">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-3">
+                        <img 
+                          src={testimonial.avatar}
+                          alt={testimonial.website}
+                          className="w-8 h-8 rounded-full mr-3"
+                        />
+                        <div>
+                          <h3 className="font-semibold text-sm text-gray-900">{testimonial.website}</h3>
+                          <p className="text-xs text-gray-500">{testimonial.category}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="text-center">
+                          <p className="text-xs text-gray-500">Initial DR</p>
+                          <p className="text-lg font-bold">{testimonial.initialDR}</p>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-gray-400" />
+                        <div className="text-center">
+                          <p className="text-xs text-gray-500">After 3 Months</p>
+                          <p className="text-lg font-bold text-blue-600">{testimonial.currentDR}</p>
+                        </div>
+                        <div className="bg-green-100 px-2 py-1 rounded">
+                          <p className="text-green-600 font-semibold text-xs">+{testimonial.growth}</p>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-600 italic">"{testimonial.testimonial.substring(0, 60)}..."</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+        <style jsx>{`
+          @keyframes scroll-testimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll-testimonials {
+            animation: scroll-testimonials 45s linear infinite;
+          }
+          .animate-scroll-testimonials:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
       </section>
 
       {/* All-In-One SEO Suite */}
