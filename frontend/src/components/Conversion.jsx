@@ -237,18 +237,6 @@ const Conversion = () => {
             </div>
           </div>
         </div>
-        <style jsx>{`
-          @keyframes scroll-testimonials {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-scroll-testimonials {
-            animation: scroll-testimonials 45s linear infinite;
-          }
-          .animate-scroll-testimonials:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
       </section>
 
       {/* All-In-One SEO Suite */}
