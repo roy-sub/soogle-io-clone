@@ -17,27 +17,28 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { dashboardStats, backlinksData } from "../../data/mock";
 
 const DashboardHome = () => {
+  const { t } = useLanguage();
   const recentBacklinks = backlinksData.slice(0, 5);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 dark:text-white">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
-        <p className="text-gray-600">Track your SEO performance and backlink growth</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('dashboard.overview')}</h1>
+        <p className="text-gray-600 dark:text-gray-300">{t('dashboard.trackPerformance')}</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Domain Rating</p>
-                <p className="text-3xl font-bold text-gray-900">{dashboardStats.domainRating}</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('dashboard.domainRating')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.domainRating}</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+12% from last month</span>
+                  <span className="text-sm text-green-600">+12% {t('dashboard.fromLastMonth')}</span>
                 </div>
               </div>
               <div className="p-3 bg-blue-100 rounded-lg">
