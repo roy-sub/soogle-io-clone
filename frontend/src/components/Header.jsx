@@ -4,13 +4,19 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Sun, Moon, Globe, ChevronDown } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'de' : 'en');
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
   };
 
   return (
@@ -44,7 +50,7 @@ const Header = () => {
             variant="ghost"
             size="sm"
             onClick={toggleTheme}
-            className="p-2"
+            className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             {theme === 'light' ? (
               <Moon className="h-4 w-4" />
@@ -53,19 +59,36 @@ const Header = () => {
             )}
           </Button>
           
-          {/* Language Toggle */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleLanguage}
-            className="p-2 flex items-center gap-1"
-          >
-            <Globe className="h-4 w-4" />
-            <span className="text-xs font-medium">
-              {language.toUpperCase()}
-            </span>
-            <ChevronDown className="h-3 w-3" />
-          </Button>
+          {/* Language Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-2 flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              >
+                <Globe className="h-4 w-4" />
+                <span className="text-xs font-medium">
+                  {language.toUpperCase()}
+                </span>
+                <ChevronDown className="h-3 w-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <DropdownMenuItem 
+                onClick={() => handleLanguageChange('en')}
+                className="cursor-pointer text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                🇺🇸 English
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => handleLanguageChange('de')}
+                className="cursor-pointer text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                🇩🇪 Deutsch
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
           <RouterLink 
             to="/" 
