@@ -16,8 +16,12 @@ import {
 } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 import { featuresData, clientLogos, backlinksPartners, testimonials, pressLogos } from "../data/mock";
+import Header from "./Header";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const HomePage = () => {
+  const { t } = useLanguage();
+  
   const iconMap = {
     search: Search,
     "trending-up": TrendingUp,
@@ -28,7 +32,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-white dark:bg-gray-900 relative transition-colors">
       {/* Modern Dot Grid Background */}
       <div className="fixed inset-0 z-0">
         <div 
@@ -42,29 +46,7 @@ const HomePage = () => {
       </div>
       
       <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-gray-200 bg-white">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-semibold text-gray-900">Soogle</span>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-              <a href="#results" className="text-gray-600 hover:text-gray-900 transition-colors">Results</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <RouterLink to="/" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">Log in</RouterLink>
-              <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white font-medium">
-                <RouterLink to="/conversion">Subscribe</RouterLink>
-              </Button>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-20 text-center">
