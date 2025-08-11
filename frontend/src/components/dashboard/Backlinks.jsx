@@ -10,6 +10,7 @@ import { useLanguage } from "../../contexts/LanguageContext";
 const Backlinks = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredBacklinks, setFilteredBacklinks] = useState(backlinksData);
+  const { t } = useLanguage();
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
@@ -41,72 +42,72 @@ const Backlinks = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Backlinks</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('dashboard.backlinks')}</h1>
         <div className="flex items-center space-x-3">
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" className="dark:border-gray-700 dark:text-gray-300">
             <Download className="w-4 h-4 mr-2" />
-            Export
+            {t('dashboard.export')}
           </Button>
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" className="dark:border-gray-700 dark:text-gray-300">
             <Filter className="w-4 h-4 mr-2" />
-            Filter
+            {t('dashboard.filter')}
           </Button>
         </div>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
+              <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Backlinks</p>
-                <p className="text-2xl font-bold text-gray-900">127</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.totalBacklinks')}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">127</p>
               </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+              <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">This Month</p>
-                <p className="text-2xl font-bold text-gray-900">25</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.thisMonth')}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">25</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-purple-600" />
+              <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">DoFollow</p>
-                <p className="text-2xl font-bold text-gray-900">89</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.doFollow')}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">89</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-yellow-600" />
+              <div className="p-2 bg-yellow-100 dark:bg-yellow-900 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Avg. DR</p>
-                <p className="text-2xl font-bold text-gray-900">76</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.avgDR')}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">76</p>
               </div>
             </div>
           </CardContent>
@@ -118,18 +119,18 @@ const Backlinks = () => {
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <Input
-            placeholder="Search backlinks..."
+            placeholder={t('dashboard.searchBacklinks')}
             value={searchTerm}
             onChange={handleSearch}
-            className="pl-10"
+            className="pl-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
           />
         </div>
       </div>
 
       {/* Backlinks Table */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle>Your Backlinks</CardTitle>
+          <CardTitle className="dark:text-white">{t('dashboard.yourBacklinks')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
