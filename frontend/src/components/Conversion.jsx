@@ -130,11 +130,13 @@ const Conversion = () => {
                 </div>
               </div>
 
-              {/* Money Back Guarantee - Bordered Box Style */}
-              <div className="border-2 border-blue-300 rounded-lg p-4 mb-8 bg-blue-50">
-                <div className="flex items-center justify-center gap-3">
-                  <ShieldCheck className="w-5 h-5 text-blue-600" />
-                  <span className="text-blue-700 font-medium">30-Day Money-Back Guarantee</span>
+              {/* Money Back Guarantee - Full Width Bordered Box Style */}
+              <div className="w-screen relative -mx-6 lg:-mx-12 xl:-mx-24 2xl:-mx-32 px-6 lg:px-12 xl:px-24 2xl:px-32 py-8 bg-blue-50 border-t-2 border-b-2 border-blue-200 mb-8">
+                <div className="max-w-7xl mx-auto">
+                  <div className="flex items-center justify-center gap-3">
+                    <ShieldCheck className="w-5 h-5 text-blue-600" />
+                    <span className="text-blue-700 font-medium text-lg">30-Day Money-Back Guarantee</span>
+                  </div>
                 </div>
               </div>
             </div>
