@@ -319,24 +319,24 @@ const HomePage = () => {
         <section id="features" className="py-20">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                All-In-One SEO Suite
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('sections.allInOneSEO')}
               </h2>
-              <p className="text-xl text-gray-600">
-                designed for your needs!
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                {t('sections.allInOneSEODesc')}
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuresData.map((feature, index) => {
-                const IconComponent = iconMap[feature.icon];
+              {t('features').map((feature, index) => {
+                const IconComponent = iconMap[featuresData[index]?.icon];
                 return (
-                  <Card key={index} className="p-8 hover:shadow-lg transition-shadow duration-300">
+                  <Card key={index} className="p-8 hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                     <CardContent className="p-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-6">
                         <IconComponent className="w-6 h-6 text-blue-600" />
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{feature.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 );
