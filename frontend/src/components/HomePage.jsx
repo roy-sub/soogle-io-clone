@@ -29,9 +29,18 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Grid Background */}
+      {/* Enhanced Grid Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,transparent_2px,#f3f4f6_2px)] bg-[size:24px_24px] opacity-30"></div>
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(209, 213, 219, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(209, 213, 219, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '24px 24px'
+          }}
+        ></div>
       </div>
       
       <div className="relative z-10">
@@ -97,7 +106,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Press Section with Wing Decorations */}
+        {/* Press Section with Wing Decorations - COLORED LOGOS */}
         <section className="max-w-7xl mx-auto px-6 py-12">
           <div className="flex items-center justify-center">
             {/* Left Wing */}
@@ -118,13 +127,14 @@ const HomePage = () => {
             </div>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mt-8">
+          {/* COLORED LOGOS - Remove grayscale */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-8">
             {pressLogos.map((press, index) => (
               <a key={index} href={press.url} target="_blank" rel="noopener noreferrer">
                 <img 
                   src={press.logo} 
                   alt={press.name}
-                  className="h-8 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-8 hover:scale-110 transition-all duration-300"
                 />
               </a>
             ))}
@@ -134,24 +144,21 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Client Logos - Revolving */}
+        {/* Client Logos - STATIC with HOVER EFFECTS */}
         <section className="max-w-7xl mx-auto px-6 py-16">
           <p className="text-center text-gray-900 text-lg font-medium mb-8">
             Over <strong>1k+</strong> SEO agencies, companies and individual marketers <strong className="text-blue-600">growing with us</strong>
           </p>
-          <div className="overflow-hidden">
-            <div className="animate-scroll-infinite">
-              <div className="flex gap-12 w-max items-center">
-                {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
-                  <img 
-                    key={index}
-                    src={client.logo} 
-                    alt={client.name}
-                    className="h-10 grayscale hover:grayscale-0 transition-all duration-300 opacity-60"
-                  />
-                ))}
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            {clientLogos.map((client, index) => (
+              <div key={index} className="transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="h-10 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
-            </div>
+            ))}
           </div>
         </section>
 

@@ -31,9 +31,18 @@ const Conversion = () => {
 
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Grid Background */}
+      {/* Enhanced Grid Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,transparent_2px,#f3f4f6_2px)] bg-[size:24px_24px] opacity-30"></div>
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(209, 213, 219, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(209, 213, 219, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '24px 24px'
+          }}
+        ></div>
       </div>
       
       <div className="relative z-10">
@@ -122,16 +131,6 @@ const Conversion = () => {
                   <span className="text-gray-700">5 Premium Backlinks (+80 DR)</span>
                 </div>
               </div>
-
-              {/* Money Back Guarantee - Full Width */}
-              <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-blue-50 border-y border-blue-200 py-4 mb-8">
-                <div className="max-w-7xl mx-auto px-6">
-                  <div className="flex items-center justify-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-blue-600" />
-                    <span className="text-blue-700 font-medium">30-Day Money-Back Guarantee</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Right Side - CTA */}
@@ -158,7 +157,17 @@ const Conversion = () => {
           </div>
         </section>
 
-        {/* Press Section with Wing Decorations */}
+        {/* Money Back Guarantee - FULL WIDTH & CENTERED */}
+        <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-sky-100 border-y border-sky-200 py-6 mb-8">
+          <div className="flex items-center justify-center h-full">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-6 h-6 text-sky-600" />
+              <span className="text-sky-700 font-semibold text-lg">30-Day Money-Back Guarantee</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Press Section with Wing Decorations - COLORED LOGOS */}
         <section className="bg-gray-50 py-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-center">
@@ -180,13 +189,14 @@ const Conversion = () => {
               </div>
             </div>
             
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mt-8">
+            {/* COLORED LOGOS - Remove grayscale */}
+            <div className="flex flex-wrap justify-center items-center gap-8 mt-8">
               {pressLogos.map((press, index) => (
                 <a key={index} href={press.url} target="_blank" rel="noopener noreferrer">
                   <img 
                     src={press.logo} 
                     alt={press.name}
-                    className="h-8 grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-8 hover:scale-110 transition-all duration-300"
                   />
                 </a>
               ))}
