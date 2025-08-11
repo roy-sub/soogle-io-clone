@@ -18,14 +18,15 @@ import { useLanguage } from "../../contexts/LanguageContext";
 
 const Performance = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("30d");
+  const { t } = useLanguage();
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Performance Analytics</h1>
-          <p className="text-gray-600">Comprehensive view of your SEO performance metrics</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('dashboard.performanceAnalytics')}</h1>
+          <p className="text-gray-600 dark:text-gray-300">{t('dashboard.performanceDesc')}</p>
         </div>
         <div className="flex items-center space-x-2">
           <Button 
