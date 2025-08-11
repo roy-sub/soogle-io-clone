@@ -18,8 +18,12 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { clientLogos, backlinksPartners, testimonials, pressLogos, featuresData } from "../data/mock";
 import "../styles/animations.css";
+import Header from "./Header";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Conversion = () => {
+  const { t } = useLanguage();
+  
   const iconMap = {
     search: Search,
     "trending-up": TrendingUp,
@@ -30,7 +34,7 @@ const Conversion = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-white dark:bg-gray-900 relative transition-colors">
       {/* Modern Dot Grid Background */}
       <div className="fixed inset-0 z-0">
         <div 
@@ -44,21 +48,7 @@ const Conversion = () => {
       </div>
       
       <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-gray-200 bg-white">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-semibold text-gray-900">Soogle</span>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Help Center</a>
-            </nav>
-          </div>
-        </header>
+        <Header />
 
         {/* Backlink Partners Grid - Revolving */}
         <section className="max-w-7xl mx-auto px-6 py-8 overflow-hidden">
