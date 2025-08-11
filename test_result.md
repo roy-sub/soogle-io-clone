@@ -102,7 +102,13 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-## user_problem_statement: "Add a /conversion page between homepage and get-started page to match the actual soogle.io flow. The homepage 'Get Started Now' button should redirect to /conversion, and the conversion page should have a 'Give Me Backlinks Now' button that leads to /get-started."
+## user_problem_statement: "I've built a clone of https://soogle.io ( GitHub repo attached ) but it's not yet 100% complete and needs a few minor updates. I want you to make the updates listed below without altering any existing functionality.
+
+1. The language switcher (English and Deutsch) is not implemented across all the pages in the dashboard. Please ensure it is fully functional across there as well - dashboard, performance, backlinks, sero audit, serp, google ads, faq, contacts.
+
+2. On the conversion page, the size of the "30-Day Money-Back Guarantee" should be same as the 'Give Me Backlinks Now' Button. And the "30-Day Money-Back Guarantee"  should be centered under under the 'Improve SEO in Weeks".
+
+3. Is it possible to add a green "Beta" tag on the theme and language button that are at the top of the pages. Is it possible without making it any ugly. If so please do that."
 
 ## frontend:
   - task: "Homepage Implementation"
