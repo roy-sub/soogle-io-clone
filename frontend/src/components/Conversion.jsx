@@ -156,22 +156,22 @@ const Conversion = () => {
         </section>
 
         {/* Press Section with Wing Decorations - COLORED LOGOS */}
-        <section className="bg-gray-50 py-12">
+        <section className="bg-gray-50 dark:bg-gray-800 py-12 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-center">
               {/* Left Wing */}
               <div className="flex-1 flex justify-end pr-8">
-                <svg className="w-12 h-6 text-gray-300" viewBox="0 0 48 24" fill="currentColor">
+                <svg className="w-12 h-6 text-gray-300 dark:text-gray-600" viewBox="0 0 48 24" fill="currentColor">
                   <path d="M0,12 C12,4 24,8 36,12 C24,16 12,20 0,12 Z" opacity="0.6"/>
                 </svg>
               </div>
               
               {/* Center Text */}
-              <p className="text-center text-gray-500 text-sm font-medium tracking-wider uppercase">AS SEEN ON</p>
+              <p className="text-center text-gray-500 dark:text-gray-400 text-sm font-medium tracking-wider uppercase">{t('sections.asSeenOn')}</p>
               
               {/* Right Wing */}
               <div className="flex-1 flex justify-start pl-8">
-                <svg className="w-12 h-6 text-gray-300" viewBox="0 0 48 24" fill="currentColor">
+                <svg className="w-12 h-6 text-gray-300 dark:text-gray-600" viewBox="0 0 48 24" fill="currentColor">
                   <path d="M48,12 C36,4 24,8 12,12 C24,16 36,20 48,12 Z" opacity="0.6"/>
                 </svg>
               </div>
@@ -190,7 +190,7 @@ const Conversion = () => {
               ))}
             </div>
             <div className="text-center mt-4">
-              <p className="text-xs text-gray-400">Verified by BrandPush.co</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500">Verified by BrandPush.co</p>
             </div>
           </div>
         </section>
