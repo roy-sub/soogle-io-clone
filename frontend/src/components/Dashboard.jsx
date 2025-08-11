@@ -115,11 +115,11 @@ const Dashboard = () => {
           <div className="space-y-2">
             <Button variant="ghost" size="sm" className="w-full justify-start text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
               <Settings className="w-4 h-4 mr-2" />
-              Settings
+              {t('dashboard.settings')}
             </Button>
             <Button variant="ghost" size="sm" className="w-full justify-start text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
               <LogOut className="w-4 h-4 mr-2" />
-              Logout
+              {t('dashboard.logout')}
             </Button>
           </div>
         </div>
