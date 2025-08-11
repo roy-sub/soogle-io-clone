@@ -264,14 +264,14 @@ const HomePage = () => {
         </section>
 
         {/* Results Section - Revolving */}
-        <section id="results" className="bg-gray-50 py-20">
+        <section id="results" className="bg-gray-50 dark:bg-gray-800 py-20 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Real Results from Real Websites
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('sections.realResults')}
               </h2>
-              <p className="text-xl text-gray-600">
-                See how these sites dramatically <strong>improved their Domain Rating</strong> in just 3 months
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                {t('sections.realResultsDesc')}
               </p>
             </div>
             <div className="overflow-hidden">
