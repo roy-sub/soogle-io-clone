@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { ExternalLink, Search, Filter, Download, TrendingUp } from "lucide-react";
 import { backlinksData } from "../../data/mock";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Backlinks = () => {
   const [searchTerm, setSearchTerm] = useState("");
