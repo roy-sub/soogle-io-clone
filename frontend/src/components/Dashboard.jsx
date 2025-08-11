@@ -149,7 +149,7 @@ const Dashboard = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-blue-50 dark:bg-blue-900 px-3 py-1 rounded-lg">
                 <CreditCard className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{credits} Credits</span>
+                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{credits} {t('dashboard.credits')}</span>
                 <Button size="sm" variant="ghost" className="p-1 h-6 w-6 hover:bg-blue-100 dark:hover:bg-blue-800">
                   <Plus className="w-3 h-3" />
                 </Button>
