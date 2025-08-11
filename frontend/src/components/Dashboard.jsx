@@ -42,6 +42,12 @@ import ComingSoon from "./dashboard/ComingSoon";
 const Dashboard = () => {
   const location = useLocation();
   const [credits] = useState(10);
+  const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
+
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
+  };
 
   const iconMap = {
     home: Home,
@@ -62,16 +68,16 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex transition-colors">
       {/* Sidebar */}
-      <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
+      <div className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col transition-colors">
         {/* Logo */}
-        <div className="p-6 border-b border-gray-200">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">S</span>
             </div>
-            <span className="text-xl font-semibold text-gray-900">Soogle</span>
+            <span className="text-xl font-semibold text-gray-900 dark:text-white">Soogle</span>
           </div>
         </div>
 
@@ -86,14 +92,14 @@ const Dashboard = () => {
                     to={item.path}
                     className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${
                       isActive(item.path)
-                        ? "bg-blue-50 text-blue-600 border-r-2 border-blue-600"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                        ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 border-r-2 border-blue-600"
+                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
                     }`}
                   >
                     <IconComponent className="w-5 h-5" />
                     <span className="font-medium">{item.name}</span>
                     {item.badge && (
-                      <Badge variant="secondary" className="ml-auto text-xs">
+                      <Badge variant="secondary" className="ml-auto text-xs dark:bg-gray-700 dark:text-gray-300">
                         {item.badge}
                       </Badge>
                     )}
@@ -105,13 +111,13 @@ const Dashboard = () => {
         </nav>
 
         {/* Bottom Section */}
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
           <div className="space-y-2">
-            <Button variant="ghost" size="sm" className="w-full justify-start">
+            <Button variant="ghost" size="sm" className="w-full justify-start text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
               <Settings className="w-4 h-4 mr-2" />
               Settings
             </Button>
-            <Button variant="ghost" size="sm" className="w-full justify-start">
+            <Button variant="ghost" size="sm" className="w-full justify-start text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
               <LogOut className="w-4 h-4 mr-2" />
               Logout
             </Button>
@@ -122,48 +128,95 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Top Header */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                 <ChevronLeft className="w-4 h-4 mr-1" />
                 App
               </Button>
-              <span className="text-gray-400">></span>
-              <span className="text-gray-600 font-medium">
+              <span className="text-gray-400 dark:text-gray-500">&gt;</span>
+              <span className="text-gray-600 dark:text-gray-300 font-medium">
                 {location.pathname === "/dashboard" ? "Dashboard" : 
                  location.pathname.includes("backlinks") ? "Backlinks" :
                  location.pathname.includes("performance") ? "Performance" :
                  location.pathname.includes("seo-audit") ? "SEO Audit" :
                  location.pathname.includes("serp") ? "SERP" :
+                 location.pathname.includes("google-ads") ? "Google Ads" :
                  "Dashboard"}
               </span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-lg">
-                <CreditCard className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-600">{credits} Credits</span>
-                <Button size="sm" variant="ghost" className="p-1 h-6 w-6">
+              <div className="flex items-center space-x-2 bg-blue-50 dark:bg-blue-900 px-3 py-1 rounded-lg">
+                <CreditCard className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{credits} Credits</span>
+                <Button size="sm" variant="ghost" className="p-1 h-6 w-6 hover:bg-blue-100 dark:hover:bg-blue-800">
                   <Plus className="w-3 h-3" />
                 </Button>
               </div>
-              <Button variant="ghost" size="sm">
+              
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleTheme}
+                className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                {theme === 'light' ? (
+                  <Moon className="h-4 w-4" />
+                ) : (
+                  <Sun className="h-4 w-4" />
+                )}
+              </Button>
+              
+              {/* Language Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="p-2 flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    <Globe className="h-4 w-4" />
+                    <span className="text-xs font-medium">
+                      {language.toUpperCase()}
+                    </span>
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+                  <DropdownMenuItem 
+                    onClick={() => handleLanguageChange('en')}
+                    className="cursor-pointer text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    🇺🇸 English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => handleLanguageChange('de')}
+                    className="cursor-pointer text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    🇩🇪 Deutsch
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
+              <Button variant="ghost" size="sm" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <Bell className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <Settings className="w-4 h-4" />
               </Button>
               <Avatar className="h-8 w-8">
                 <AvatarImage src="/api/placeholder/32/32" />
-                <AvatarFallback>SC</AvatarFallback>
+                <AvatarFallback className="dark:bg-gray-700 dark:text-gray-200">SC</AvatarFallback>
               </Avatar>
-              <span className="text-sm font-medium text-gray-700">SolooCourse</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">SolooCourse</span>
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-6 bg-gray-50 dark:bg-gray-900 transition-colors">
           <Routes>
             <Route index element={<DashboardHome />} />
             <Route path="performance" element={<Performance />} />
