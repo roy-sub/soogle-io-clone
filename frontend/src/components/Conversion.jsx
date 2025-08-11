@@ -149,7 +149,7 @@ const Conversion = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="bg-sky-50 border-2 border-sky-200 hover:bg-sky-100 text-sky-700 px-8 py-4 text-lg dark:bg-sky-900 dark:border-sky-600 dark:text-sky-200 dark:hover:bg-sky-800"
+              className="bg-sky-50 border-2 border-sky-200 hover:bg-sky-100 text-sky-700 px-16 py-4 text-lg dark:bg-sky-900 dark:border-sky-600 dark:text-sky-200 dark:hover:bg-sky-800"
             >
               <ShieldCheck className="w-5 h-5 mr-2" />
               {t('conversion.moneyBackGuarantee')}
