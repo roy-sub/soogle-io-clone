@@ -198,8 +198,8 @@ const Conversion = () => {
         {/* Client Social Proof */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <p className="text-center text-gray-900 text-lg font-medium mb-8">
-              Over <strong>1k+</strong> SEO agencies, companies and individual marketers <strong className="text-blue-600">growing with us</strong>
+            <p className="text-center text-gray-900 dark:text-white text-lg font-medium mb-8">
+              {t('sections.overThousandAgencies')}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
               {clientLogos.map((client, index) => (
@@ -207,7 +207,7 @@ const Conversion = () => {
                   key={index}
                   src={client.logo} 
                   alt={client.name}
-                  className="h-10 hover:opacity-100 transition-all duration-300"
+                  className="h-10 hover:opacity-100 transition-all duration-300 dark:invert"
                 />
               ))}
             </div>
