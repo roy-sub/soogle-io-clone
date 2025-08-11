@@ -17,8 +17,20 @@ import {
   CreditCard,
   Plus,
   ChevronLeft,
-  Bell
+  Bell,
+  Sun, 
+  Moon, 
+  Globe, 
+  ChevronDown
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { useTheme } from '../contexts/ThemeContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { navigationItems } from "../data/mock";
 import DashboardHome from "./dashboard/DashboardHome";
 import Performance from "./dashboard/Performance";
