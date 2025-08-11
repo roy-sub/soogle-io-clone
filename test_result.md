@@ -162,7 +162,41 @@
           agent: "main"
           comment: "Fixed Link import issue by importing Link as LinkIcon and TrendingUp, ShieldCheck icons. Page now loads completely with form and features preview."
 
-  - task: "Dashboard Layout and Navigation"
+  - task: "Dashboard Language Switcher Implementation"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/dashboard/Performance.jsx, /app/frontend/src/components/dashboard/Backlinks.jsx, /app/frontend/src/components/dashboard/SEOAudit.jsx, /app/frontend/src/components/dashboard/SERP.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Added useLanguage hook and translation support to all dashboard pages. Updated Performance, Backlinks, SEO Audit, and SERP pages to use translation keys for main UI elements like headings, buttons, labels. Added comprehensive German translations for all dashboard content. Dark mode styling maintained throughout."
+
+  - task: "Conversion Page Money-Back Guarantee Fix"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Conversion.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Redesigned 30-Day Money-Back Guarantee from small floating badge to full-width button matching the size of 'Give Me Backlinks Now' button. Repositioned it centered under 'Improve SEO in Weeks' heading as requested. Applied sky-blue styling with shield icon for visual consistency."
+
+  - task: "Green Beta Tags Implementation"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Header.jsx, /app/frontend/src/components/Dashboard.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Added green 'BETA' corner badges to both theme toggle and language dropdown buttons in Header and Dashboard components. Positioned as small corner badges using absolute positioning (-top-1 -right-1) with green background and white text. Maintains clean UI without looking ugly."
     implemented: true
     working: true
     file: "/app/frontend/src/components/Dashboard.jsx"
