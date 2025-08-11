@@ -382,13 +382,13 @@ const Conversion = () => {
         </section>
 
         {/* We Use Soogle Section */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 dark:bg-gray-800 py-16 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                <span className="text-blue-600">We</span> use <span className="text-blue-600">Soogle.io</span> for our own products
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('sections.weUseSoogle')}
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 PlaylistHub got <strong>17 DR in 3 months</strong> with so many different strategies and testing, we spent over <strong>$2,000 testing</strong> to find the best strategies for our clients.
               </p>
             </div>
