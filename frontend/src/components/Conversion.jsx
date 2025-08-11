@@ -270,24 +270,24 @@ const Conversion = () => {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">
-                <span className="text-blue-600">All-In-One SEO Suite</span>
+              <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+                {t('sections.allInOneSEO')}
               </h2>
-              <p className="text-xl text-gray-600">
-                designed for your needs!
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                {t('sections.allInOneSEODesc')}
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuresData.map((feature, index) => {
-                const IconComponent = iconMap[feature.icon];
+              {t('features').map((feature, index) => {
+                const IconComponent = iconMap[featuresData[index]?.icon];
                 return (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                  <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                     <CardContent className="p-0">
-                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                      <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
                         <IconComponent className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 );
