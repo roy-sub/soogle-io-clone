@@ -215,21 +215,21 @@ const Conversion = () => {
         </section>
 
         {/* Real Results Section - Revolving */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 dark:bg-gray-800 py-16 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Real Results from Real Websites
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('sections.realResults')}
               </h2>
-              <p className="text-lg text-gray-600">
-                See how these sites dramatically <strong className="text-blue-600">improved their Domain Rating</strong> in just 3 months
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                {t('sections.realResultsDesc')}
               </p>
             </div>
             <div className="overflow-hidden">
               <div className="animate-scroll-testimonials">
                 <div className="flex gap-6 w-max">
                   {[...testimonials, ...testimonials].map((testimonial, index) => (
-                    <Card key={`${testimonial.id}-${index}`} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-80">
+                    <Card key={`${testimonial.id}-${index}`} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-80 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700">
                       <CardContent className="p-0">
                         <div className="flex items-center mb-3">
                           <img 
@@ -238,25 +238,25 @@ const Conversion = () => {
                             className="w-8 h-8 rounded-full mr-3"
                           />
                           <div>
-                            <h3 className="font-semibold text-sm text-gray-900">{testimonial.website}</h3>
-                            <p className="text-xs text-gray-500">{testimonial.category}</p>
+                            <h3 className="font-semibold text-sm text-gray-900 dark:text-white">{testimonial.website}</h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{testimonial.category}</p>
                           </div>
                         </div>
                         <div className="flex items-center justify-between mb-3">
                           <div className="text-center">
-                            <p className="text-xs text-gray-500">Initial DR</p>
-                            <p className="text-lg font-bold">{testimonial.initialDR}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Initial DR</p>
+                            <p className="text-lg font-bold text-gray-900 dark:text-white">{testimonial.initialDR}</p>
                           </div>
-                          <ArrowRight className="w-4 h-4 text-gray-400" />
+                          <ArrowRight className="w-4 h-4 text-gray-400 dark:text-gray-500" />
                           <div className="text-center">
-                            <p className="text-xs text-gray-500">After 3 Months</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">After 3 Months</p>
                             <p className="text-lg font-bold text-blue-600">{testimonial.currentDR}</p>
                           </div>
-                          <div className="bg-green-100 px-2 py-1 rounded">
-                            <p className="text-green-600 font-semibold text-xs">+{testimonial.growth}</p>
+                          <div className="bg-green-100 dark:bg-green-900 px-2 py-1 rounded">
+                            <p className="text-green-600 dark:text-green-300 font-semibold text-xs">+{testimonial.growth}</p>
                           </div>
                         </div>
-                        <p className="text-xs text-gray-600 italic">"{testimonial.testimonial.substring(0, 60)}..."</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300 italic">"{testimonial.testimonial.substring(0, 60)}..."</p>
                       </CardContent>
                     </Card>
                   ))}
