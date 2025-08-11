@@ -83,6 +83,18 @@ const Conversion = () => {
                 {t('conversion.improveSEO')}
               </h1>
               
+              {/* Money-Back Guarantee - Centered under heading, same size as CTA button */}
+              <div className="mb-6 text-center lg:text-left">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="bg-sky-50 border-2 border-sky-200 hover:bg-sky-100 text-sky-700 px-8 py-4 text-lg w-full mb-4 dark:bg-sky-900 dark:border-sky-600 dark:text-sky-200 dark:hover:bg-sky-800"
+                >
+                  <ShieldCheck className="w-5 h-5 mr-2" />
+                  {t('conversion.moneyBackGuarantee')}
+                </Button>
+              </div>
+              
               <div className="mb-6">
                 <Badge className="mb-4 bg-blue-100 text-blue-600 border-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-800">
                   {t('conversion.mostClientsSee')}
@@ -117,18 +129,6 @@ const Conversion = () => {
                     <Zap className="w-3 h-3 text-blue-600" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-300">{t('conversion.premiumBacklinks')}</span>
-                </div>
-              </div>
-
-              {/* Money-Back Guarantee - Positioned relative to content, appearing floating */}
-              <div className="relative">
-                <div className="absolute -top-4 -right-4 lg:-right-8">
-                  <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-600 rounded-lg px-4 py-3 shadow-lg">
-                    <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
-                      <ShieldCheck className="w-4 h-4" />
-                      <span className="font-medium text-sm whitespace-nowrap">{t('conversion.moneyBackGuarantee')}</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
