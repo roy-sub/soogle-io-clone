@@ -14,6 +14,7 @@ import {
   PieChart
 } from "lucide-react";
 import { performanceData } from "../../data/mock";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Performance = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("30d");
