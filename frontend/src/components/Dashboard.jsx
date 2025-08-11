@@ -133,17 +133,17 @@ const Dashboard = () => {
             <div className="flex items-center space-x-4">
               <Button variant="ghost" size="sm" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                 <ChevronLeft className="w-4 h-4 mr-1" />
-                App
+                {t('dashboard.app')}
               </Button>
               <span className="text-gray-400 dark:text-gray-500">&gt;</span>
               <span className="text-gray-600 dark:text-gray-300 font-medium">
-                {location.pathname === "/dashboard" ? "Dashboard" : 
-                 location.pathname.includes("backlinks") ? "Backlinks" :
-                 location.pathname.includes("performance") ? "Performance" :
-                 location.pathname.includes("seo-audit") ? "SEO Audit" :
-                 location.pathname.includes("serp") ? "SERP" :
-                 location.pathname.includes("google-ads") ? "Google Ads" :
-                 "Dashboard"}
+                {location.pathname === "/dashboard" ? t('dashboard.title') : 
+                 location.pathname.includes("backlinks") ? t('dashboard.backlinks') :
+                 location.pathname.includes("performance") ? t('dashboard.performance') :
+                 location.pathname.includes("seo-audit") ? t('dashboard.seoAudit') :
+                 location.pathname.includes("serp") ? t('dashboard.serp') :
+                 location.pathname.includes("google-ads") ? t('dashboard.googleAds') :
+                 t('dashboard.title')}
               </span>
             </div>
             <div className="flex items-center space-x-4">
