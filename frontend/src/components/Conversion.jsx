@@ -120,12 +120,14 @@ const Conversion = () => {
                 </div>
               </div>
 
-              {/* Floating Money-Back Guarantee Button */}
-              <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
-                <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-600 rounded-lg px-4 py-3 shadow-lg max-w-xs">
-                  <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
-                    <ShieldCheck className="w-5 h-5" />
-                    <span className="font-medium text-sm">{t('conversion.moneyBackGuarantee')}</span>
+              {/* Money-Back Guarantee - Positioned relative to content, appearing floating */}
+              <div className="relative">
+                <div className="absolute -top-4 -right-4 lg:-right-8">
+                  <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-600 rounded-lg px-4 py-3 shadow-lg">
+                    <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                      <ShieldCheck className="w-4 h-4" />
+                      <span className="font-medium text-sm whitespace-nowrap">{t('conversion.moneyBackGuarantee')}</span>
+                    </div>
                   </div>
                 </div>
               </div>
