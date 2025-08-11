@@ -9,22 +9,28 @@ import Blog from "./components/Blog";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import { Toaster } from "./components/ui/toaster";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/conversion" element={<Conversion />} />
-          <Route path="/get-started" element={<GetStarted />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Toaster />
-      </BrowserRouter>
+      <ThemeProvider>
+        <LanguageProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/conversion" element={<Conversion />} />
+              <Route path="/get-started" element={<GetStarted />} />
+              <Route path="/dashboard/*" element={<Dashboard />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+            <Toaster />
+          </BrowserRouter>
+        </LanguageProvider>
+      </ThemeProvider>
     </div>
   );
 }
