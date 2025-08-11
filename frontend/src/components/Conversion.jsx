@@ -297,14 +297,14 @@ const Conversion = () => {
         </section>
 
         {/* Real Backlinks Section - With Logos */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 dark:bg-gray-800 py-16 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">
-                <span className="text-blue-600">Real Backlinks</span>
+              <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+                {t('sections.realBacklinks')}
               </h2>
-              <p className="text-xl text-gray-600">
-                Save +100 hours of work!
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                {t('sections.realBacklinksDesc')}
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -319,7 +319,7 @@ const Conversion = () => {
                 { name: "PasteLink", url: "pastelink.net", dr: "52", status: "Live & Indexed", favicon: "https://www.google.com/s2/favicons?domain=pastelink.net&sz=64" },
                 { name: "Academia.edu", url: "independent.academia.edu", dr: "89", status: "Live & Indexed", favicon: "https://www.google.com/s2/favicons?domain=academia.edu&sz=64" }
               ].map((backlink, index) => (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700">
                   <CardContent className="p-0">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center">
@@ -329,19 +329,19 @@ const Conversion = () => {
                           className="w-8 h-8 mr-3"
                         />
                         <div>
-                          <h3 className="font-semibold text-gray-900">{backlink.name}</h3>
-                          <p className="text-sm text-gray-500">{backlink.url}</p>
+                          <h3 className="font-semibold text-gray-900 dark:text-white">{backlink.name}</h3>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">{backlink.url}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <Badge variant="outline" className="text-xs mb-2">
+                        <Badge variant="outline" className="text-xs mb-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
                           DR {backlink.dr}
                         </Badge>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-sm text-green-600">{backlink.status}</span>
+                      <span className="text-sm text-green-600 dark:text-green-400">{backlink.status}</span>
                     </div>
                   </CardContent>
                 </Card>
