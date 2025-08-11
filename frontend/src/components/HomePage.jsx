@@ -274,7 +274,7 @@ const HomePage = () => {
                       <CardContent className="p-0">
                         <div className="flex items-center mb-4">
                           <img 
-                            src={testimonial.avatar}
+                            src={testimonial.companyLogo || testimonial.avatar}
                             alt={testimonial.website}
                             className="w-12 h-12 rounded-full mr-4"
                           />
