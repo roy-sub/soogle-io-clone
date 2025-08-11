@@ -15,8 +15,11 @@ import {
   Link as LinkIcon
 } from "lucide-react";
 import { seoAuditData } from "../../data/mock";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const SEOAudit = () => {
+  const { t } = useLanguage();
+
   const getIssueIcon = (severity) => {
     switch (severity) {
       case "critical": return <AlertTriangle className="w-4 h-4 text-red-500" />;
@@ -27,9 +30,9 @@ const SEOAudit = () => {
 
   const getIssueColor = (severity) => {
     switch (severity) {
-      case "critical": return "border-red-200 bg-red-50";
-      case "warning": return "border-yellow-200 bg-yellow-50";
-      default: return "border-blue-200 bg-blue-50";
+      case "critical": return "border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900";
+      case "warning": return "border-yellow-200 bg-yellow-50 dark:border-yellow-800 dark:bg-yellow-900";
+      default: return "border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900";
     }
   };
 
@@ -38,25 +41,25 @@ const SEOAudit = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">SEO Audit</h1>
-          <p className="text-gray-600">Comprehensive technical SEO analysis with actionable insights</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('dashboard.seoAudit')}</h1>
+          <p className="text-gray-600 dark:text-gray-300">{t('dashboard.seoAuditDesc')}</p>
         </div>
         <Button className="bg-blue-600 hover:bg-blue-700">
-          Run New Audit
+          {t('dashboard.runNewAudit')}
         </Button>
       </div>
 
       {/* Overall Score */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardContent className="p-8">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">SEO Health Score</h2>
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('dashboard.seoHealthScore')}</h2>
               <div className="flex items-center space-x-4">
-                <div className="text-4xl font-bold text-green-600">{seoAuditData.score}/100</div>
+                <div className="text-4xl font-bold text-green-600 dark:text-green-400">{seoAuditData.score}/100</div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-sm text-green-600 font-medium">Good Performance</span>
+                  <span className="text-sm text-green-600 dark:text-green-400 font-medium">{t('dashboard.goodPerformance')}</span>
                 </div>
               </div>
             </div>
@@ -77,7 +80,7 @@ const SEOAudit = () => {
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-bold text-gray-900">{seoAuditData.score}%</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">{seoAuditData.score}%</span>
               </div>
             </div>
           </div>
@@ -87,20 +90,24 @@ const SEOAudit = () => {
       {/* Issues Summary */}
       <div className="grid md:grid-cols-3 gap-6">
         {seoAuditData.issues.map((issue, index) => (
-          <Card key={index}>
+          <Card key={index} className="dark:bg-gray-800 dark:border-gray-700">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">{issue.type} Issues</p>
-                  <p className="text-2xl font-bold text-gray-900">{issue.count}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                    {issue.type === "Critical" ? t('dashboard.criticalIssues') : 
+                     issue.type === "Warning" ? t('dashboard.warningIssues') : 
+                     t('dashboard.noticeIssues')}
+                  </p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{issue.count}</p>
                 </div>
                 <div className={`p-3 rounded-lg ${
-                  issue.type === "Critical" ? "bg-red-100" :
-                  issue.type === "Warning" ? "bg-yellow-100" : "bg-blue-100"
+                  issue.type === "Critical" ? "bg-red-100 dark:bg-red-900" :
+                  issue.type === "Warning" ? "bg-yellow-100 dark:bg-yellow-900" : "bg-blue-100 dark:bg-blue-900"
                 }`}>
-                  {issue.type === "Critical" ? <AlertTriangle className="w-6 h-6 text-red-600" /> :
-                   issue.type === "Warning" ? <AlertCircle className="w-6 h-6 text-yellow-600" /> :
-                   <Info className="w-6 h-6 text-blue-600" />
+                  {issue.type === "Critical" ? <AlertTriangle className="w-6 h-6 text-red-600 dark:text-red-400" /> :
+                   issue.type === "Warning" ? <AlertCircle className="w-6 h-6 text-yellow-600 dark:text-yellow-400" /> :
+                   <Info className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   }
                 </div>
               </div>
@@ -110,44 +117,44 @@ const SEOAudit = () => {
       </div>
 
       {/* Core Web Vitals */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle>Core Web Vitals</CardTitle>
+          <CardTitle className="dark:text-white">{t('dashboard.coreWebVitals')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="mb-4">
-                <div className="text-2xl font-bold text-green-600">{seoAuditData.coreWebVitals.lcp}s</div>
-                <p className="text-sm text-gray-600">Largest Contentful Paint</p>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{seoAuditData.coreWebVitals.lcp}s</div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('dashboard.largestContentfulPaint')}</p>
               </div>
               <Progress value={75} className="h-2" />
-              <Badge variant="default" className="mt-2 bg-green-100 text-green-700">Good</Badge>
+              <Badge variant="default" className="mt-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200">{t('dashboard.good')}</Badge>
             </div>
             <div className="text-center">
               <div className="mb-4">
-                <div className="text-2xl font-bold text-green-600">{seoAuditData.coreWebVitals.fid}ms</div>
-                <p className="text-sm text-gray-600">First Input Delay</p>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{seoAuditData.coreWebVitals.fid}ms</div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('dashboard.firstInputDelay')}</p>
               </div>
               <Progress value={85} className="h-2" />
-              <Badge variant="default" className="mt-2 bg-green-100 text-green-700">Good</Badge>
+              <Badge variant="default" className="mt-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200">{t('dashboard.good')}</Badge>
             </div>
             <div className="text-center">
               <div className="mb-4">
-                <div className="text-2xl font-bold text-yellow-600">{seoAuditData.coreWebVitals.cls}</div>
-                <p className="text-sm text-gray-600">Cumulative Layout Shift</p>
+                <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">{seoAuditData.coreWebVitals.cls}</div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('dashboard.cumulativeLayoutShift')}</p>
               </div>
               <Progress value={60} className="h-2" />
-              <Badge variant="outline" className="mt-2 bg-yellow-100 text-yellow-700">Needs Improvement</Badge>
+              <Badge variant="outline" className="mt-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-200">{t('dashboard.needsImprovement')}</Badge>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Technical Issues */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle>Technical Issues</CardTitle>
+          <CardTitle className="dark:text-white">{t('dashboard.technicalIssues')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -160,14 +167,14 @@ const SEOAudit = () => {
                   <div className="flex items-center space-x-3">
                     {getIssueIcon(issue.severity)}
                     <div>
-                      <h3 className="font-medium text-gray-900">{issue.issue}</h3>
-                      <p className="text-sm text-gray-600">
+                      <h3 className="font-medium text-gray-900 dark:text-white">{issue.issue}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
                         {issue.pages} page{issue.pages !== 1 ? 's' : ''} affected
                       </p>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm">
-                    Fix Now
+                  <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300">
+                    {t('dashboard.fixNow')}
                   </Button>
                 </div>
               </div>
@@ -177,52 +184,52 @@ const SEOAudit = () => {
       </Card>
 
       {/* Recommendations */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle>Optimization Recommendations</CardTitle>
+          <CardTitle className="dark:text-white">{t('dashboard.optimizationRecommendations')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+            <div className="p-4 bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-800 rounded-lg">
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Optimize Images</h3>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">Optimize Images</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                     Compress and resize large images to improve page load speed. This could improve your LCP score.
                   </p>
-                  <Button variant="outline" size="sm">
-                    View Details
+                  <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300">
+                    {t('dashboard.viewDetails')}
                   </Button>
                 </div>
               </div>
             </div>
             
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-800 rounded-lg">
               <div className="flex items-start space-x-3">
                 <Info className="w-5 h-5 text-blue-500 mt-0.5" />
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Add Meta Descriptions</h3>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">Add Meta Descriptions</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                     12 pages are missing meta descriptions. This impacts search engine visibility.
                   </p>
-                  <Button variant="outline" size="sm">
-                    Fix Now
+                  <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300">
+                    {t('dashboard.fixNow')}
                   </Button>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-800 rounded-lg">
               <div className="flex items-start space-x-3">
                 <AlertCircle className="w-5 h-5 text-yellow-500 mt-0.5" />
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Fix Broken Links</h3>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">Fix Broken Links</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                     3 internal links are broken and need to be updated or removed.
                   </p>
-                  <Button variant="outline" size="sm">
-                    View Links
+                  <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300">
+                    {t('dashboard.viewLinks')}
                   </Button>
                 </div>
               </div>
