@@ -181,7 +181,8 @@ export const testimonials = [
     growth: 15,
     testimonial: "We got 17 DR in 3 months with so many different strategies and testing, we spent over $2,000 testing to find the best strategies for our clients.",
     organicSearches: "3,000",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=PH&backgroundColor=62eb47"
+    avatar: "https://www.google.com/s2/favicons?domain=playlisthub.io&sz=64",
+    companyLogo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiMzQjgyRjYiLz4KPHRleHQgeD0iMjQiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UDwvdGV4dD4KPC9zdmc+"
   },
   {
     id: 2,
@@ -191,7 +192,8 @@ export const testimonials = [
     currentDR: 44,
     growth: 7,
     testimonial: "Incredible growth in just 3 months. We are now ranking for more keywords and getting more traffic.",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=UN&backgroundColor=47eb47"
+    avatar: "https://www.google.com/s2/favicons?domain=usanews.com&sz=64",
+    companyLogo: "https://www.google.com/s2/favicons?domain=usanews.com&sz=64"
   },
   {
     id: 3,
@@ -201,7 +203,8 @@ export const testimonials = [
     currentDR: 10,
     growth: 6,
     testimonial: "Our organic traffic doubled after our DR improvement. Best SEO investment we've ever made!",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=E3&backgroundColor=ebd047"
+    avatar: "https://www.google.com/s2/favicons?domain=e360hospitality.com&sz=64",
+    companyLogo: "https://www.google.com/s2/favicons?domain=e360hospitality.com&sz=64"
   },
   {
     id: 4,
@@ -211,7 +214,8 @@ export const testimonials = [
     currentDR: 23,
     growth: 1,
     testimonial: "Only 1 month in, but their SEO tools are actually very good!",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=RL&backgroundColor=eb47eb"
+    avatar: "https://www.google.com/s2/favicons?domain=republiclabs.ai&sz=64",
+    companyLogo: "https://www.google.com/s2/favicons?domain=republiclabs.ai&sz=64"
   },
   {
     id: 5,
@@ -221,7 +225,8 @@ export const testimonials = [
     currentDR: 13,
     growth: 5,
     testimonial: "We are very happy with the results!",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=IV&backgroundColor=47b4eb"
+    avatar: "https://www.google.com/s2/favicons?domain=involveus.al&sz=64",
+    companyLogo: "https://www.google.com/s2/favicons?domain=involveus.al&sz=64"
   },
   {
     id: 6,
@@ -231,7 +236,8 @@ export const testimonials = [
     currentDR: 28,
     growth: 2,
     testimonial: "2 Months in and the results are organic and real! Nothing out of the ordinary, just a good tool.",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=CP&backgroundColor=eb477e"
+    avatar: "https://www.google.com/s2/favicons?domain=crystalplace.com&sz=64",
+    companyLogo: "https://www.google.com/s2/favicons?domain=crystalplace.com&sz=64"
   }
 ];
 
