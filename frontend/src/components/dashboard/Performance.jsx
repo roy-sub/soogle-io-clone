@@ -165,9 +165,9 @@ const Performance = () => {
 
         <TabsContent value="keywords" className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
-            <Card>
+            <Card className="dark:bg-gray-800 dark:border-gray-700">
               <CardHeader>
-                <CardTitle>Keyword Rankings Distribution</CardTitle>
+                <CardTitle className="dark:text-white">{t('dashboard.keywordRankingsDistribution')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
