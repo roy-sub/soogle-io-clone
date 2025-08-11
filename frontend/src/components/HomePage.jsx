@@ -91,17 +91,19 @@ const HomePage = () => {
           <div className="flex items-center justify-center">
             {/* Left Wing */}
             <div className="flex-1 flex justify-end pr-8">
-              <svg className="w-12 h-6 text-gray-300" viewBox="0 0 48 24" fill="currentColor">
+              <svg className="w-12 h-6 text-gray-300 dark:text-gray-600" viewBox="0 0 48 24" fill="currentColor">
                 <path d="M0,12 C12,4 24,8 36,12 C24,16 12,20 0,12 Z" opacity="0.6"/>
               </svg>
             </div>
             
             {/* Center Text */}
-            <p className="text-center text-gray-500 text-sm font-medium tracking-wider uppercase">AS SEEN ON</p>
+            <p className="text-center text-gray-500 dark:text-gray-400 text-sm font-medium tracking-wider uppercase">
+              {t('sections.asSeenOn')}
+            </p>
             
             {/* Right Wing */}
             <div className="flex-1 flex justify-start pl-8">
-              <svg className="w-12 h-6 text-gray-300" viewBox="0 0 48 24" fill="currentColor">
+              <svg className="w-12 h-6 text-gray-300 dark:text-gray-600" viewBox="0 0 48 24" fill="currentColor">
                 <path d="M48,12 C36,4 24,8 12,12 C24,16 36,20 48,12 Z" opacity="0.6"/>
               </svg>
             </div>
@@ -120,14 +122,14 @@ const HomePage = () => {
             ))}
           </div>
           <div className="text-center mt-4">
-            <p className="text-xs text-gray-400">Verified by BrandPush.co</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">Verified by BrandPush.co</p>
           </div>
         </section>
 
         {/* Client Logos - STATIC with HOVER EFFECTS */}
         <section className="max-w-7xl mx-auto px-6 py-16">
-          <p className="text-center text-gray-900 text-lg font-medium mb-8">
-            Over <strong>1k+</strong> SEO agencies, companies and individual marketers <strong className="text-blue-600">growing with us</strong>
+          <p className="text-center text-gray-900 dark:text-white text-lg font-medium mb-8">
+            {t('sections.overThousandAgencies')}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12">
             {clientLogos.map((client, index) => (
@@ -135,7 +137,7 @@ const HomePage = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-10 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="h-10 opacity-60 hover:opacity-100 transition-opacity duration-300 dark:invert"
                 />
               </div>
             ))}
