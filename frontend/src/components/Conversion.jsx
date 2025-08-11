@@ -241,7 +241,7 @@ const Conversion = () => {
                       <CardContent className="p-0">
                         <div className="flex items-center mb-3">
                           <img 
-                            src={testimonial.avatar}
+                            src={testimonial.companyLogo || testimonial.avatar}
                             alt={testimonial.website}
                             className="w-8 h-8 rounded-full mr-3"
                           />
