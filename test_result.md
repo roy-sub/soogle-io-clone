@@ -185,6 +185,9 @@
         - working: true
           agent: "main"
           comment: "Redesigned 30-Day Money-Back Guarantee from small floating badge to full-width button matching the size of 'Give Me Backlinks Now' button. Repositioned it centered under 'Improve SEO in Weeks' heading as requested. Applied sky-blue styling with shield icon for visual consistency."
+        - working: true
+          agent: "main"
+          comment: "POSITIONING CORRECTION: Based on user screenshots comparison with original soogle.io, repositioned the Money-Back Guarantee button from under the heading to the bottom of the left content area, after the features list. This matches the exact positioning in the original soogle.io layout."
 
   - task: "Green Beta Tags Implementation"
     implemented: true
