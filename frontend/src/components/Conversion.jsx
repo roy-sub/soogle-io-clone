@@ -395,7 +395,7 @@ const Conversion = () => {
             <div className="max-w-5xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 {/* Left Side - PlaylistHub Card */}
-                <div className="bg-white rounded-2xl p-8 shadow-lg border">
+                <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-6">
                       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -404,26 +404,26 @@ const Conversion = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">playlisthub.io</h3>
-                      <p className="text-gray-600">Music Marketing</p>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">playlisthub.io</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Music Marketing</p>
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-8 mb-4">
                       <div>
-                        <p className="text-sm text-gray-500">Initial DR</p>
-                        <p className="text-3xl font-bold text-gray-900">2</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Initial DR</p>
+                        <p className="text-3xl font-bold text-gray-900 dark:text-white">2</p>
                       </div>
-                      <ArrowRight className="w-8 h-8 text-gray-400" />
+                      <ArrowRight className="w-8 h-8 text-gray-400 dark:text-gray-500" />
                       <div>
-                        <p className="text-sm text-gray-500">After 3 Months</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">After 3 Months</p>
                         <p className="text-3xl font-bold text-blue-600">17</p>
                       </div>
-                      <div className="bg-green-100 px-4 py-2 rounded-full">
-                        <p className="text-green-600 font-semibold">+15</p>
+                      <div className="bg-green-100 dark:bg-green-900 px-4 py-2 rounded-full">
+                        <p className="text-green-600 dark:text-green-300 font-semibold">+15</p>
                       </div>
                     </div>
-                    <p className="text-gray-700 italic mb-4">We got 17 DR in 3 months with so many different strategies and testing, we spent over $2,000 testing to find the best strategies for our clients.</p>
+                    <p className="text-gray-700 dark:text-gray-300 italic mb-4">We got 17 DR in 3 months with so many different strategies and testing, we spent over $2,000 testing to find the best strategies for our clients.</p>
                   </div>
                 </div>
 
