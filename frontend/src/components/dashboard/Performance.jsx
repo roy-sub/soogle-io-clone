@@ -198,9 +198,9 @@ const Performance = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="dark:bg-gray-800 dark:border-gray-700">
               <CardHeader>
-                <CardTitle>Recent Improvements</CardTitle>
+                <CardTitle className="dark:text-white">{t('dashboard.recentImprovements')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
