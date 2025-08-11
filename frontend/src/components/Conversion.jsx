@@ -120,12 +120,12 @@ const Conversion = () => {
                 </div>
               </div>
 
-              {/* Money Back Guarantee - Full Width Bordered Box Style */}
-              <div className="w-screen relative -mx-6 lg:-mx-12 xl:-mx-24 2xl:-mx-32 px-6 lg:px-12 xl:px-24 2xl:px-32 py-8 bg-blue-50 dark:bg-blue-900/20 border-t-2 border-b-2 border-blue-200 dark:border-blue-800 mb-8">
-                <div className="max-w-7xl mx-auto">
-                  <div className="flex items-center justify-center gap-3">
-                    <ShieldCheck className="w-5 h-5 text-blue-600" />
-                    <span className="text-blue-700 dark:text-blue-300 font-medium text-lg">{t('conversion.moneyBackGuarantee')}</span>
+              {/* Floating Money-Back Guarantee Button */}
+              <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
+                <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-600 rounded-lg px-4 py-3 shadow-lg max-w-xs">
+                  <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                    <ShieldCheck className="w-5 h-5" />
+                    <span className="font-medium text-sm">{t('conversion.moneyBackGuarantee')}</span>
                   </div>
                 </div>
               </div>
