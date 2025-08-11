@@ -55,16 +55,16 @@ const Conversion = () => {
           <div className="animate-scroll-infinite">
             <div className="flex gap-4 w-max">
               {[...backlinksPartners, ...backlinksPartners].slice(0, 20).map((partner, index) => (
-                <Card key={index} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-32">
+                <Card key={index} className="p-4 hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-32 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                   <CardContent className="p-0 text-center">
                     <img 
                       src={partner.favicon} 
                       alt={partner.name}
                       className="w-8 h-8 mx-auto mb-2"
                     />
-                    <h3 className="font-medium text-xs text-gray-900 mb-1">{partner.name}</h3>
-                    <p className="text-xs text-gray-500 mb-1">{partner.url}</p>
-                    <Badge variant="outline" className="text-xs">
+                    <h3 className="font-medium text-xs text-gray-900 dark:text-white mb-1">{partner.name}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{partner.url}</p>
+                    <Badge variant="outline" className="text-xs border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
                       DR {partner.dr}
                     </Badge>
                   </CardContent>
