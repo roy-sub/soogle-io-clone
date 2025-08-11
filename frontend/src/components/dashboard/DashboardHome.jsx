@@ -13,6 +13,7 @@ import {
   ArrowDownRight,
   BarChart3
 } from "lucide-react";
+import { useLanguage } from '../../contexts/LanguageContext';
 import { dashboardStats, backlinksData } from "../../data/mock";
 
 const DashboardHome = () => {
