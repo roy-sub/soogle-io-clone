@@ -29,16 +29,14 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Enhanced Grid Background */}
+      {/* Modern Dot Grid Background */}
       <div className="fixed inset-0 z-0">
         <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(209, 213, 219, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(209, 213, 219, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: '24px 24px'
+            backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+            opacity: '0.4'
           }}
         ></div>
       </div>

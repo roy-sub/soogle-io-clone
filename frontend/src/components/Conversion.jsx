@@ -31,16 +31,14 @@ const Conversion = () => {
 
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Enhanced Grid Background */}
+      {/* Modern Dot Grid Background */}
       <div className="fixed inset-0 z-0">
         <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(209, 213, 219, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(209, 213, 219, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: '24px 24px'
+            backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+            opacity: '0.4'
           }}
         ></div>
       </div>
@@ -131,6 +129,14 @@ const Conversion = () => {
                   <span className="text-gray-700">5 Premium Backlinks (+80 DR)</span>
                 </div>
               </div>
+
+              {/* Money Back Guarantee - Bordered Box Style */}
+              <div className="border-2 border-blue-300 rounded-lg p-4 mb-8 bg-blue-50">
+                <div className="flex items-center justify-center gap-3">
+                  <ShieldCheck className="w-5 h-5 text-blue-600" />
+                  <span className="text-blue-700 font-medium">30-Day Money-Back Guarantee</span>
+                </div>
+              </div>
             </div>
 
             {/* Right Side - CTA */}
@@ -153,16 +159,6 @@ const Conversion = () => {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal" className="h-6" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/200px-Google_Pay_Logo.svg.png" alt="Google Pay" className="h-6" />
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Money Back Guarantee - FULL WIDTH & CENTERED */}
-        <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-sky-100 border-y border-sky-200 py-6 mb-8">
-          <div className="flex items-center justify-center h-full">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="w-6 h-6 text-sky-600" />
-              <span className="text-sky-700 font-semibold text-lg">30-Day Money-Back Guarantee</span>
             </div>
           </div>
         </section>
@@ -219,7 +215,7 @@ const Conversion = () => {
                   key={index}
                   src={client.logo} 
                   alt={client.name}
-                  className="h-10 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-10 hover:opacity-100 transition-all duration-300"
                 />
               ))}
             </div>
