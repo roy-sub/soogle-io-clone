@@ -406,7 +406,10 @@ const Conversion = () => {
                 <div className="bg-white rounded-2xl p-8 shadow-lg border">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-6">
-                      <span className="text-white font-bold text-xl">P</span>
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12l8-4 8 4v8l-8 4-8-4v-8z" stroke="white" strokeWidth="2" fill="none"/>
+                        <circle cx="16" cy="16" r="2" fill="white"/>
+                      </svg>
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900">playlisthub.io</h3>
@@ -432,7 +435,7 @@ const Conversion = () => {
                   </div>
                 </div>
 
-                {/* Right Side - Chart/Graph */}
+                {/* Right Side - Line Chart */}
                 <div className="bg-blue-600 rounded-2xl p-8 text-white relative">
                   <div className="mb-6">
                     <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full inline-block font-semibold">
@@ -440,17 +443,38 @@ const Conversion = () => {
                     </div>
                   </div>
                   <div className="h-48 relative">
-                    {/* Mock analytics chart */}
-                    <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-between">
-                      <div className="bg-white bg-opacity-20 w-8 h-12 rounded-t"></div>
-                      <div className="bg-white bg-opacity-30 w-8 h-16 rounded-t"></div>
-                      <div className="bg-white bg-opacity-25 w-8 h-20 rounded-t"></div>
-                      <div className="bg-white bg-opacity-40 w-8 h-24 rounded-t"></div>
-                      <div className="bg-white bg-opacity-45 w-8 h-28 rounded-t"></div>
-                      <div className="bg-white bg-opacity-50 w-8 h-32 rounded-t"></div>
-                      <div className="bg-white bg-opacity-60 w-8 h-40 rounded-t"></div>
-                      <div className="bg-white bg-opacity-80 w-8 h-48 rounded-t"></div>
-                    </div>
+                    {/* Line Chart */}
+                    <svg viewBox="0 0 300 150" className="w-full h-full">
+                      {/* Grid lines */}
+                      <defs>
+                        <pattern id="grid-conversion" width="30" height="15" patternUnits="userSpaceOnUse">
+                          <path d="M 30 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5"/>
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#grid-conversion)" />
+                      
+                      {/* Line chart path */}
+                      <path
+                        d="M 20 130 L 50 125 L 80 120 L 110 115 L 140 100 L 170 85 L 200 70 L 230 50 L 260 30 L 290 20"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      
+                      {/* Data points */}
+                      <circle cx="20" cy="130" r="3" fill="white" />
+                      <circle cx="50" cy="125" r="3" fill="white" />
+                      <circle cx="80" cy="120" r="3" fill="white" />
+                      <circle cx="110" cy="115" r="3" fill="white" />
+                      <circle cx="140" cy="100" r="3" fill="white" />
+                      <circle cx="170" cy="85" r="3" fill="white" />
+                      <circle cx="200" cy="70" r="3" fill="white" />
+                      <circle cx="230" cy="50" r="3" fill="white" />
+                      <circle cx="260" cy="30" r="3" fill="white" />
+                      <circle cx="290" cy="20" r="3" fill="white" />
+                    </svg>
                   </div>
                 </div>
               </div>
