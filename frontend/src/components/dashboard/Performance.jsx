@@ -55,73 +55,73 @@ const Performance = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Organic Sessions</p>
-                <p className="text-3xl font-bold text-gray-900">24,567</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.organicSessions')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">24,567</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+23.5%</span>
+                  <span className="text-sm text-green-600 dark:text-green-400">+23.5%</span>
                 </div>
               </div>
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <Eye className="w-6 h-6 text-blue-600" />
+              <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                <Eye className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Avg. Session Duration</p>
-                <p className="text-3xl font-bold text-gray-900">3:42</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.avgSessionDuration')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">3:42</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+18%</span>
+                  <span className="text-sm text-green-600 dark:text-green-400">+18%</span>
                 </div>
               </div>
-              <div className="p-3 bg-green-100 rounded-lg">
-                <Clock className="w-6 h-6 text-green-600" />
+              <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
+                <Clock className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Bounce Rate</p>
-                <p className="text-3xl font-bold text-gray-900">42.3%</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.bounceRate')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">42.3%</p>
                 <div className="flex items-center mt-2">
                   <TrendingDown className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">-5.2%</span>
+                  <span className="text-sm text-green-600 dark:text-green-400">-5.2%</span>
                 </div>
               </div>
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <BarChart3 className="w-6 h-6 text-purple-600" />
+              <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-lg">
+                <BarChart3 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Pages per Session</p>
-                <p className="text-3xl font-bold text-gray-900">2.8</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{t('dashboard.pagesPerSession')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">2.8</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+0.4</span>
+                  <span className="text-sm text-green-600 dark:text-green-400">+0.4</span>
                 </div>
               </div>
-              <div className="p-3 bg-yellow-100 rounded-lg">
-                <Target className="w-6 h-6 text-yellow-600" />
+              <div className="p-3 bg-yellow-100 dark:bg-yellow-900 rounded-lg">
+                <Target className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
             </div>
           </CardContent>
@@ -131,15 +131,15 @@ const Performance = () => {
       {/* Performance Charts */}
       <Tabs defaultValue="traffic" className="space-y-6">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="traffic">Traffic Analytics</TabsTrigger>
-          <TabsTrigger value="keywords">Keyword Performance</TabsTrigger>
-          <TabsTrigger value="backlinks">Backlink Growth</TabsTrigger>
+          <TabsTrigger value="traffic">{t('dashboard.trafficAnalytics')}</TabsTrigger>
+          <TabsTrigger value="keywords">{t('dashboard.keywordPerformance')}</TabsTrigger>
+          <TabsTrigger value="backlinks">{t('dashboard.backlinkGrowth')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="traffic" className="space-y-6">
-          <Card>
+          <Card className="dark:bg-gray-800 dark:border-gray-700">
             <CardHeader>
-              <CardTitle>Organic Traffic Growth</CardTitle>
+              <CardTitle className="dark:text-white">{t('dashboard.organicTrafficGrowth')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="h-80 flex items-end justify-between space-x-2">
