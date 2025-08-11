@@ -307,6 +307,54 @@
   test_sequence: 1
   run_ui: false
 
+  - task: "Google Ads Coming Soon Page - Fixed Imports"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/dashboard/ComingSoon.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ VERIFIED: Google Ads Coming Soon page loads correctly with proper CardHeader and CardTitle imports. Card components render properly without errors. Professional interface displays correctly with timeline, features, and call-to-action buttons."
+
+  - task: "Dashboard Theme and Language Switchers"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Dashboard.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ VERIFIED: Dashboard header now includes both theme toggle (moon/sun icon) and language switcher (globe icon with EN/DE dropdown). Theme toggle switches between light/dark modes successfully. Language dropdown works correctly with English/German options. Both features match homepage implementation."
+
+  - task: "Conversion Page Floating Money-Back Guarantee"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Conversion.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ VERIFIED: Money-back guarantee is implemented as floating button positioned on right side using 'fixed top-1/2 right-6' CSS classes. Element displays correctly in bottom-right corner with proper styling (blue background, shield icon, shadow). Positioned as overlay element as requested."
+
+  - task: "Comprehensive Dark Theme Support"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Dashboard.jsx, /app/frontend/src/components/Conversion.jsx, /app/frontend/src/contexts/ThemeContext.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ VERIFIED: Dark theme support fully implemented across Dashboard and all components. Sidebar shows proper dark styling (dark:bg-gray-800), text is readable with proper contrast (dark:text-white), cards have appropriate dark backgrounds, theme persists across navigation. No visual inconsistencies detected. Theme toggle works on both homepage and dashboard."
+
 ## test_plan:
   current_focus: []
   stuck_tasks: []
