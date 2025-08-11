@@ -48,30 +48,30 @@ const DashboardHome = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Total Backlinks</p>
-                <p className="text-3xl font-bold text-gray-900">{dashboardStats.totalBacklinks}</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('dashboard.totalBacklinks')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.totalBacklinks}</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+25 this month</span>
+                  <span className="text-sm text-green-600">+25 {t('dashboard.thisMonth')}</span>
                 </div>
               </div>
-              <div className="p-3 bg-green-100 rounded-lg">
-                <LinkIcon className="w-6 h-6 text-green-600" />
+              <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
+                <LinkIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Organic Traffic</p>
-                <p className="text-3xl font-bold text-gray-900">{dashboardStats.organicTraffic.toLocaleString()}</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('dashboard.organicTraffic')}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.organicTraffic.toLocaleString()}</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
                   <span className="text-sm text-green-600">+{dashboardStats.monthlyGrowth}% this month</span>
